@@ -70,15 +70,3 @@ npm install -g @vue/cli
 3. **一定一定重启电脑**，否则依旧报错 **vue:command not found**
 
 
-
-## Git 版本管理开发
-
-- 创建repository
-
-- clone 到本地 D:\GitHub\下
-
-  git clone https://github.com/eva-yx-wang/coalScheme.git
-
-- 分支管理
-
-  一般不在master主干上开发，而是在dev分支上开发
