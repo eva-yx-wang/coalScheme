@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buzz.freelearner.server.mapper.CoalAnalysisMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="buzz.freelearner.server.pojo.CoalAnalysis">
+        <id column="coal_id" property="coalId" />
+        <result column="coal_m_ar" property="coalMAr" />
+        <result column="coal_m_ad" property="coalMAd" />
+        <result column="coal_a_ar" property="coalAAr" />
+        <result column="coal_v_daf" property="coalVDaf" />
+        <result column="coal_v_ad" property="coalVAd" />
+        <result column="coal_qnet" property="coalQnet" />
+        <result column="coal_c_ar" property="coalCAr" />
+        <result column="coal_h_ar" property="coalHAr" />
+        <result column="coal_n_ar" property="coalNAr" />
+        <result column="coal_s_ar" property="coalSAr" />
+        <result column="coal_o_ar" property="coalOAr" />
+        <result column="ash_dt_ar" property="ashDtAr" />
+        <result column="ash_st_ar" property="ashStAr" />
+        <result column="ash_ft_ar" property="ashFtAr" />
+        <result column="ash_sio2_ar" property="ashSio2Ar" />
+        <result column="ash_al2o3_ar" property="ashAl2o3Ar" />
+        <result column="ash_fe2o3_ar" property="ashFe2o3Ar" />
+        <result column="ash_tio2" property="ashTio2" />
+        <result column="ash_cao" property="ashCao" />
+        <result column="ash_mgo" property="ashMgo" />
+        <result column="ash_so3" property="ashSo3" />
+        <result column="ash_k2o" property="ashK2o" />
+        <result column="ash_na20" property="ashNa20" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        coal_id, coal_m_ar, coal_m_ad, coal_a_ar, coal_v_daf, coal_v_ad, coal_qnet, coal_c_ar, coal_h_ar, coal_n_ar, coal_s_ar, coal_o_ar, ash_dt_ar, ash_st_ar, ash_ft_ar, ash_sio2_ar, ash_al2o3_ar, ash_fe2o3_ar, ash_tio2, ash_cao, ash_mgo, ash_so3, ash_k2o, ash_na20
+    </sql>
+
+</mapper>
