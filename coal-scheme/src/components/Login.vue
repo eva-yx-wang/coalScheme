@@ -37,14 +37,11 @@
           <!-- button -->
           <el-form-item>
             <!-- @click事件绑定submitForm方法 传入loginFormRef-->
-            <el-button
-              class="input-button"
-              type="primary"
-              @click="submitForm('ruleFormRef')"
+            <el-button class="input-button" type="primary" @click="submitForm()"
               >登录</el-button
             >
             <!-- @click事件绑定resetForm方法 传入表单名字ruleFormRef-->
-            <el-button class="input-button" @click="resetForm('ruleFormRef')"
+            <el-button class="input-button" @click="resetForm()"
               >重置</el-button
             >
           </el-form-item>
@@ -56,14 +53,15 @@
 
 <script>
 export default {
+  name: "Login",
   data() {
     return {
       //表单数据
       ruleForm: {
-        username: "admin",
-        password: "123456",
+        username: "",
+        password: "",
       },
-      //表单验证规则对象
+      //表单验证规则
       rules: {
         username: [
           { required: true, message: "用户名不能为空", trigger: "blur" }, //'blur'为鼠标失焦时
@@ -78,25 +76,28 @@ export default {
   },
   methods: {
     //预验证: 提交前检查验证规则
-    submitForm(formName) {
-      //valid为预验证结果, async+await异步解析成可查看数据
-      this.$refs[formName].validate(async (valid) => {
+    submitForm() {
+      //查看预验证
+      this.$refs.ruleFormRef.validate((valid) => {
+        //1 预验证通过，则post request (ps:valid为预验证结果)
         if (valid) {
-          //请求路径:login, 传入表单数据this.ruleForm, 注意是表单数据不是表单引用！！！
-          //只拿返回对象中属性中的的data对象，重名为result
-          const { data: result } = await this.$http.post(
-            "login",
-            this.ruleForm
-          );
-          if (result.meta.status !== 200) {
-            return this.$message.error("登录失败！");
-          } else {
-            this.$message.success("登录成功！");
-            //storage token到Browser
-            window.sessionStorage.setItem("token", result.data.token);
-            //跳转到/home页面
-            this.$router.push("/home");
-          }
+          //1.1 自制postRequest同一处理response结果
+          // 用插件属性时记得+this!
+          //注意传入this.ruleForm 作为paras对象！！！
+          //因为默认端口号是8080, 因此要重设端口号为8081,否则会提示404 not found
+          this.$axios.defaults.baseURL = "http://localhost:8081";
+          this.postRequest("/login", this.ruleForm).then((response) => {
+            if (response) {
+              //1.1.1 拿到token并存在sessionStorage内，对应keyName为"tokenStr"
+              const tokenStr =
+                response.object.tokenHead + response.object.token;
+              window.sessionStorage.setItem("tokenStr", tokenStr);
+              //1.1.2 跳转url
+              //默认replace的端口号是8080, 不用push，避免返回/login页面
+              this.$router.replace("/home");
+            } 
+            //else在api.js统一处理
+          });
         } else {
           this.$message.error("输入非法!");
           return false;
@@ -104,8 +105,8 @@ export default {
       });
     },
     //重置
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
+    resetForm() {
+      this.$refs.ruleFormRef.resetFields();
     },
   },
 };
