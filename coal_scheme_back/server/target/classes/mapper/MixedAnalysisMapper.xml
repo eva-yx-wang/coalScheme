@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buzz.freelearner.server.mapper.MixedAnalysisMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="buzz.freelearner.server.pojo.MixedAnalysis">
+        <id column="mixed_id" property="mixedId" />
+        <result column="mixed_name" property="mixedName" />
+        <result column="coal1_id" property="coal1Id" />
+        <result column="coal2_id" property="coal2Id" />
+        <result column="coal1_ratio" property="coal1Ratio" />
+        <result column="mixed_c_ar" property="mixedCAr" />
+        <result column="mixed_h_ar" property="mixedHAr" />
+        <result column="mixed_o_ar" property="mixedOAr" />
+        <result column="mixed_n_ar" property="mixedNAr" />
+        <result column="mixed_s_ar" property="mixedSAr" />
+        <result column="mixed_s_ad" property="mixedSAd" />
+        <result column="mixed_a_ar" property="mixedAAr" />
+        <result column="mixed_m_ar" property="mixedMAr" />
+        <result column="mixed_m_ad" property="mixedMAd" />
+        <result column="mixed_v_daf" property="mixedVDaf" />
+        <result column="mixed_qnet_ar" property="mixedQnetAr" />
+        <result column="ash_sio2_ar" property="ashSio2Ar" />
+        <result column="ash_al2o3_ar" property="ashAl2o3Ar" />
+        <result column="ash_fe2o3_ar" property="ashFe2o3Ar" />
+        <result column="ash_tio2" property="ashTio2" />
+        <result column="ash_cao" property="ashCao" />
+        <result column="ash_mgo" property="ashMgo" />
+        <result column="ash_so3" property="ashSo3" />
+        <result column="ash_k2o" property="ashK2o" />
+        <result column="soft_t" property="softT" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        mixed_id, mixed_name, coal1_id, coal2_id, coal1_ratio, mixed_c_ar, mixed_h_ar, mixed_o_ar, mixed_n_ar, mixed_s_ar, mixed_s_ad, mixed_a_ar, mixed_m_ar, mixed_m_ad, mixed_v_daf, mixed_qnet_ar, ash_sio2_ar, ash_al2o3_ar, ash_fe2o3_ar, ash_tio2, ash_cao, ash_mgo, ash_so3, ash_k2o, soft_t
+    </sql>
+
+
+</mapper>

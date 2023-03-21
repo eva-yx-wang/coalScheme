@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--Note that the path name here needs to be changed-->
+<mapper namespace="buzz.freelearner.server.mapper.CoalInploMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="buzz.freelearner.server.pojo.CoalInplo">
+        <id column="coal_id" property="coalId" />
+        <result column="coal_name" property="coalName" />
+        <result column="coal_price" property="coalPrice" />
+        <result column="coal_load" property="coalLoad" />
+        <result column="coal_origin" property="coalOrigin" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        coal_id, coal_name, coal_price, coal_load, coal_origin
+    </sql>
+
+</mapper>

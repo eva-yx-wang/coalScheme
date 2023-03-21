@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buzz.freelearner.server.mapper.CoalSchemeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="buzz.freelearner.server.pojo.CoalScheme">
+        <id column="scheme_id" property="schemeId" />
+        <result column="mixed_id" property="mixedId" />
+        <result column="min_v_daf" property="minVDaf" />
+        <result column="max_m_ar" property="maxMAr" />
+        <result column="max_a_ar" property="maxAAr" />
+        <result column="max_s_ad" property="maxSAd" />
+        <result column="min_qnet_ar" property="minQnetAr" />
+        <result column="min_soft_t" property="minSoftT" />
+        <result column="sox" property="sox" />
+        <result column="nox" property="nox" />
+        <result column="t_env" property="tEnv" />
+        <result column="boiler_eff" property="boilerEff" />
+        <result column="mixed_consump_kwh" property="mixedConsumpKwh" />
+        <result column="stand_consump_kwh" property="standConsumpKwh" />
+        <result column="boilder_load" property="boilderLoad" />
+        <result column="steam_flow" property="steamFlow" />
+        <result column="mixed_price" property="mixedPrice" />
+        <result column="lime_price" property="limePrice" />
+        <result column="nh3_price" property="nh3Price" />
+        <result column="power_price" property="powerPrice" />
+        <result column="lime_consump" property="limeConsump" />
+        <result column="lime_cost" property="limeCost" />
+        <result column="nh3_consump" property="nh3Consump" />
+        <result column="nh3_cost" property="nh3Cost" />
+        <result column="power_generate" property="powerGenerate" />
+        <result column="ratio_own" property="ratioOwn" />
+        <result column="power_supply" property="powerSupply" />
+        <result column="power_cost_kwh" property="powerCostKwh" />
+        <result column="power_cost_day" property="powerCostDay" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        scheme_id, mixed_id, min_v_daf, max_m_ar, max_a_ar, max_s_ad, min_qnet_ar, min_soft_t, sox, nox, t_env, boiler_eff, mixed_consump_kwh, stand_consump_kwh, boilder_load, steam_flow, mixed_price, lime_price, nh3_price, power_price, lime_consump, lime_cost, nh3_consump, nh3_cost, power_generate, ratio_own, power_supply, power_cost_kwh, power_cost_day
+    </sql>
+
+</mapper>

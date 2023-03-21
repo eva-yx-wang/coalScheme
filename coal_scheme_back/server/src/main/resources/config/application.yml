@@ -1,0 +1,50 @@
+server:
+  # port
+  port:8081
+
+spring:
+  # dataSource
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coalscheme_test1?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: localhost
+    # connection-pool
+    hikari:
+      pool-name: DateHikariCP
+      minimum-idle: 5
+      # free connection keep-alive: 180s
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      # return connection
+      auto-commit: true
+      # connection keep-alive: 1800s
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      # use sql query to test connection
+      connection-test-query: SELECT 1
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  # 没有使用Entity Beans的普通java对象，可以把POJO作为支持业务逻辑的协助类
+  type-aliases-package: buzz.freelearner.server.pojo
+  configuration:
+    # java驼峰命名在查找时自动转换为下划线
+    map-underscore-to-camel-case: true
+
+
+logging:
+  level:
+    buzz.freelearner.server.mapper: debug
+
+# JWT
+jwt:
+  # JWT 储存的Header
+  tokenHeader: Authorization
+  # encoding & decoding secret key
+  secret: cs-secret
+  # JWT 超期时间(60*60*24 s)
+  expiration: 604800
+  # JWT 负载拿到的开头
+  tokenHead: Bearer
+
